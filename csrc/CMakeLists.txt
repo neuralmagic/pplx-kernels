@@ -9,7 +9,7 @@ option(WITH_TESTS "Build tests" OFF)
 option(WITH_BENCHMARKS "Build benchmarks" OFF)
 
 # Hardcode architectures for testing  
-set(CMAKE_CUDA_ARCHITECTURES "90a;100" CACHE STRING "CUDA architecture to target" FORCE)
+set(CMAKE_CUDA_ARCHITECTURES "90a;100;120" CACHE STRING "CUDA architecture to target" FORCE)
 message(STATUS "Hardcoded CMAKE_CUDA_ARCHITECTURES: ${CMAKE_CUDA_ARCHITECTURES}")
 
 # === CMake configuration ===
