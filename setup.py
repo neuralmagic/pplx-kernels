@@ -9,8 +9,14 @@ from setuptools.command.build_ext import build_ext
 
 def _get_torch_cmake_prefix_path() -> str:
     import torch
+    import os
 
-    return torch.utils.cmake_prefix_path
+    torch_path = torch.utils.cmake_prefix_path
+    existing_path = os.environ.get('CMAKE_PREFIX_PATH', '')
+
+    if existing_path:
+        return f"{torch_path}:{existing_path}"
+    return torch_path
 
 
 class CMakeBuild(build_ext):
